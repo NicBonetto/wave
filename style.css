@@ -5,9 +5,22 @@
 
 header {
   position: fixed;
-  background-color: black;
-  opacity: 0.3;
+  background-color: Black;
+  opacity: 0.4;
   border: solid Black;
   width: 100vw;
   height: 55px;
+}
+
+.container {
+  margin-left: 65px;
+  margin-right: 65px;
+}
+
+.wave {
+  font-family: 'Bubbler One', sans-serif;
+  color: white;
+  font-size: 35px;
+  letter-spacing: 1px;
+  margin-top: 5px;
 }
