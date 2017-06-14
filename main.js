@@ -108,36 +108,52 @@ function carousel() {
 
 var interval = setInterval(carousel, 3500)
 
-var $button = document.querySelector('button')
-
-function search() {
-  var $searchItem = document.querySelector('input').value
-  var $output = document.querySelector('output')
-  $output.textContent = ''
+function search(searchItem, songs) {
   var index = 0
   var songCompare
 
-  while ($searchItem !== songCompare && index < songs.length) {
+  while (searchItem !== songCompare && index < songs.length) {
     songCompare = songs[index].title
     index++
   }
-
-  if ($searchItem === songCompare) {
-    var $newArtist = document.createElement('div')
-    $newArtist.textContent = songs[index - 1].artist
-    $output.appendChild($newArtist)
-
-    var $newTitle = document.createElement('div')
-    $newTitle.textContent = songs[index - 1].title
-    $output.appendChild($newTitle)
+  if (searchItem === songCompare) {
+    songCompare = songs[index - 1]
   }
   else {
-    $output.textContent = 'Sorry, we could not find that song.'
+    songCompare = 'Sorry, we could not find that song.'
   }
-
-  document.output.appendChild($output)
+  return songCompare
 }
 
+function renderElements(song) {
+  var $output = document.querySelector('output')
+  $output.textContent = ''
+
+  if (song === 'Sorry, we could not find that song.') {
+    $output.textContent = song
+  }
+  else {
+    var $searchImg = document.createElement('img')
+    var $searchArtist = document.createElement('div')
+    var $searchTitle = document.createElement('div')
+
+    $searchImg.src = song.img
+    $searchArtist.textContent = song.artist
+    $searchTitle.textContent = song.title
+
+    $output.appendChild($searchImg)
+    $output.appendChild($searchArtist)
+    $output.appendChild($searchTitle)
+  }
+  return $output
+}
+
+var $button = document.querySelector('button')
+
 $button.addEventListener('click', function () {
-  search()
+  var $searchItem = document.querySelector('input').value
+  var foundSong = search($searchItem, songs)
+  var $song = renderElements(foundSong)
+
+  document.output.appendChild($song)
 })
