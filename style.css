@@ -77,3 +77,11 @@ input {
   border: solid black;
   border-width: 1px;
 }
+
+.search-result {
+  margin-top: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
