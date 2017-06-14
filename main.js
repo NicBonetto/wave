@@ -1,14 +1,18 @@
-var songs = [
-  {
-    artist: 'Ben Howard'
-    title: 'I Forget Where We Were'
-  },
-  {
-    artist: 'Red Hot Chili Peppers'
-    title: 'Snow (Hey Oh)'
-  },
-  {
-    artist: 'Calvin Harris feat. Frank Ocean'
-    title: 'Slide'
+var $slide = document.querySelector('li')
+$slide.classList.add('showing')
+
+function carousel() {
+  $currentSlide = document.querySelector('.showing')
+
+  if ($currentSlide.nextElementSibling !== null) {
+    $currentSlide.classList.remove('showing')
+    $currentSlide.nextElementSibling.classList.add('showing')
   }
-]
+  else {
+    $currentSlide.classList.remove('showing')
+    $slide.classList.add('showing')
+  }
+
+}
+
+var interval = setInterval(carousel, 4000)
