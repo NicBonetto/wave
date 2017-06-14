@@ -77,7 +77,7 @@ function search(userSong) {
     returnSong = songs[index - 1]
   }
   else {
-    returnSong = 'Sorry, we could not find this song'
+    returnSong = 'Sorry, we could not find that song.'
   }
   return returnSong
 }
