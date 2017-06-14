@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 var songs = [
   {
     image: 'https://images-na.ssl-images-amazon.com/images/I/81ZH8lGiGRL._SY355_.jpg',
@@ -38,10 +40,49 @@ var songs = [
     image: 'https://images-na.ssl-images-amazon.com/images/I/619%2BLn6ljcL._SS500.jpg',
     artist: 'Led Zeppelin',
     title: 'Over the Hills and Far Away'
+  },
+  {
+    image: 'https://images.genius.com/84d4d7fa0f6d8474c61513fd88ec347a.1000x1000x1.jpg',
+    artist: 'Mating Ritual',
+    title: 'Game'
+  },
+  {
+    image: 'https://pbs.twimg.com/media/C3h7e43VUAAxzQV.jpg',
+    artist: 'Khalid',
+    title: 'Location'
+  },
+  {
+    image: 'https://images.genius.com/06d1aa0f3f55029815eeb515d5639fc9.1000x1000x1.jpg',
+    artist: 'Lana Del Rey',
+    title: 'Love'
+  },
+  {
+    image: 'https://images.genius.com/be5fe24a47ad0c465004d529d74eb7d6.807x807x1.jpg',
+    artist: 'The Japanese House',
+    title: 'Face Like Thunder'
   }
 ]
 
-$ul = document.querySelector('ul')
+function search(userSong) {
+  var index = 0
+  var songCompare = songs[index].title
+  var returnSong
+
+  while (userSong !== songCompare && index < songs.length) {
+    songCompare = songs[index].title
+    index++
+  }
+
+  if (userSong === songCompare) {
+    returnSong = songs[index - 1]
+  }
+  else {
+    returnSong = 'Sorry, we could not find this song'
+  }
+  return returnSong
+}
+
+var $ul = document.querySelector('ul')
 
 function createList() {
   for (var i = 0; i < songs.length; i++) {
@@ -71,7 +112,7 @@ var $slide = document.querySelector('li')
 $slide.classList.add('showing')
 
 function carousel() {
-  $currentSlide = document.querySelector('.showing')
+  var $currentSlide = document.querySelector('.showing')
 
   if ($currentSlide.nextElementSibling !== null) {
     $currentSlide.classList.remove('showing')
