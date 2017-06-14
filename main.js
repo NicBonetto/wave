@@ -63,25 +63,6 @@ var songs = [
   }
 ]
 
-function search(userSong) {
-  var index = 0
-  var songCompare = songs[index].title
-  var returnSong
-
-  while (userSong !== songCompare && index < songs.length) {
-    songCompare = songs[index].title
-    index++
-  }
-
-  if (userSong === songCompare) {
-    returnSong = songs[index - 1]
-  }
-  else {
-    returnSong = 'Sorry, we could not find that song.'
-  }
-  return returnSong
-}
-
 var $ul = document.querySelector('ul')
 
 function createList() {
@@ -126,3 +107,37 @@ function carousel() {
 }
 
 var interval = setInterval(carousel, 3500)
+
+var $button = document.querySelector('button')
+
+function search() {
+  var $searchItem = document.querySelector('input').value
+  var $output = document.querySelector('output')
+  $output.textContent = ''
+  var index = 0
+  var songCompare
+
+  while ($searchItem !== songCompare && index < songs.length) {
+    songCompare = songs[index].title
+    index++
+  }
+
+  if ($searchItem === songCompare) {
+    var $newArtist = document.createElement('div')
+    $newArtist.textContent = songs[index - 1].artist
+    $output.appendChild($newArtist)
+
+    var $newTitle = document.createElement('div')
+    $newTitle.textContent = songs[index - 1].title
+    $output.appendChild($newTitle)
+  }
+  else {
+    $output.textContent = 'Sorry, we could not find that song.'
+  }
+
+  document.output.appendChild($output)
+}
+
+$button.addEventListener('click', function () {
+  search()
+})
