@@ -127,14 +127,18 @@ function search(searchItem, songs) {
 
 function renderElements(song) {
   var $output = document.createElement('li')
+  $output.classList.add('song-result')
 
   if (song === 'Sorry, we could not find that song.') {
     $output.textContent = song
   }
   else {
     var $searchImg = document.createElement('img')
+    $searchImg.classList.add('thumbnail')
     var $searchArtist = document.createElement('div')
+    $searchArtist.classList.add('song-artist')
     var $searchTitle = document.createElement('div')
+    $searchTitle.classList.add('song-title')
 
     $searchImg.src = song.image
     $searchArtist.textContent = song.artist

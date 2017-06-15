@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  background-color: #141518;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -27,6 +31,7 @@ header {
 
 h2 {
   text-align: center;
+  color: #fff;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   letter-spacing: 2px;
@@ -37,6 +42,7 @@ h2 {
 .carousel {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
+  color: grey;
   letter-spacing: 1px;
   margin-left: 39%;
   text-align: center;
@@ -45,7 +51,7 @@ h2 {
 
 img {
   max-width: 200px;
-  border: solid black;
+  border: solid #fff;
   border-width: 1px;
 }
 
@@ -72,9 +78,16 @@ li {
 h4 {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  color: #fff;
   letter-spacing: 2px;
   margin-top: 5%;
   margin-bottom: 2%;
+}
+
+.thumbnail {
+  width: 85px;
+  display: inline-block;
+  float: left;
 }
 
 .wrapper {
@@ -105,17 +118,39 @@ input:focus {
 button {
   display: inline-block;
   color: #fff;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
   background-color: #5c69ff;
   border: solid black;
   border-width: 1px;
-  transform: translateY(48%);
-  padding: 2px 5px;
+  transform: translateY(33%);
+  padding: 2px;
 }
 
 .search-result {
   margin-top: 10px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
+  color: #fff;
+  font-weight: 100;
+  font-size: 15px;
   letter-spacing: 1px;
+}
+
+.song-result {
+  width: 215px;
+  height: 86px;
+  background-color: #191919;
+  border: solid black;
+  border-width: 4px;
+}
+
+.song-artist {
+  margin-left: 7px;
+  display: inline;
+}
+
+.song-title {
+  margin-left: 7px;
+  display: inline-block;
 }
