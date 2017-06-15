@@ -77,9 +77,39 @@ h4 {
   margin-bottom: 2%;
 }
 
+.wrapper {
+  width: 190px;
+  height: 30px;
+  border: solid black;
+  border-width: 5px;
+  background-color: #2c2f34;
+}
+
 input {
   border: solid black;
   border-width: 1px;
+  margin-left: 10px;
+  transform: translateY(50%);
+}
+
+input[type="text"],
+textarea {
+  background-color: #191919;
+  color: grey;
+}
+
+input:focus {
+  color: #36f;
+}
+
+button {
+  display: inline-block;
+  color: #fff;
+  background-color: #5c69ff;
+  border: solid black;
+  border-width: 1px;
+  transform: translateY(48%);
+  padding: 2px 5px;
 }
 
 .search-result {
