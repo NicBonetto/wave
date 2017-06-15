@@ -55,14 +55,18 @@ ul {
 }
 
 li {
-  position: absolute;
-  opacity: 0;
   list-style-type: none;
+}
+
+.slide {
+  opacity: 0;
+  position: absolute;
 }
 
 .showing {
   opacity: 1;
   transition: opacity 1s;
+  position: absolute;
 }
 
 h4 {

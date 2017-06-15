@@ -126,8 +126,7 @@ function search(searchItem, songs) {
 }
 
 function renderElements(song) {
-  var $output = document.querySelector('output')
-  $output.textContent = ''
+  var $output = document.createElement('li')
 
   if (song === 'Sorry, we could not find that song.') {
     $output.textContent = song
@@ -137,7 +136,7 @@ function renderElements(song) {
     var $searchArtist = document.createElement('div')
     var $searchTitle = document.createElement('div')
 
-    $searchImg.src = song.img
+    $searchImg.src = song.image
     $searchArtist.textContent = song.artist
     $searchTitle.textContent = song.title
 
@@ -151,9 +150,11 @@ function renderElements(song) {
 var $button = document.querySelector('button')
 
 $button.addEventListener('click', function () {
+  var $results = document.querySelector('.results')
+  $results.innerHTML = ''
   var $searchItem = document.querySelector('input').value
   var foundSong = search($searchItem, songs)
   var $song = renderElements(foundSong)
 
-  document.output.appendChild($song)
+  $results.appendChild($song)
 })
