@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
+
 var songs = [
   {
-    image: 'https://images-na.ssl-images-amazon.com/images/I/81ZH8lGiGRL._SY355_.jpg',
+    image: 'http://dis.resized.images.s3.amazonaws.com/540x540/98143.jpeg',
     artist: 'Ben Howard',
     title: 'I Forget Where We Were'
   },
@@ -38,19 +40,43 @@ var songs = [
     image: 'https://images-na.ssl-images-amazon.com/images/I/619%2BLn6ljcL._SS500.jpg',
     artist: 'Led Zeppelin',
     title: 'Over the Hills and Far Away'
+  },
+  {
+    image: 'https://images.genius.com/84d4d7fa0f6d8474c61513fd88ec347a.1000x1000x1.jpg',
+    artist: 'Mating Ritual',
+    title: 'Game'
+  },
+  {
+    image: 'https://pbs.twimg.com/media/C3h7e43VUAAxzQV.jpg',
+    artist: 'Khalid',
+    title: 'Location'
+  },
+  {
+    image: 'https://images.genius.com/06d1aa0f3f55029815eeb515d5639fc9.1000x1000x1.jpg',
+    artist: 'Lana Del Rey',
+    title: 'Love'
+  },
+  {
+    image: 'https://images.genius.com/be5fe24a47ad0c465004d529d74eb7d6.807x807x1.jpg',
+    artist: 'The Japanese House',
+    title: 'Face Like Thunder'
   }
 ]
 
-$ul = document.querySelector('ul')
-
 function createList() {
+  var $ul = document.querySelector('ul')
+
   for (var i = 0; i < songs.length; i++) {
     var $newLi = document.createElement('li')
     $newLi.classList.add('slide')
-
     var $img = document.createElement('img')
+    $img.classList.add('img-responsive')
     var $artist = document.createElement('div')
+    $artist.classList.add('artist')
+    $artist.classList.add('text-center')
     var $title = document.createElement('div')
+    $title.classList.add('title')
+    $title.classList.add('text-center')
 
     $img.src = songs[i].image
     $newLi.appendChild($img)
@@ -71,7 +97,7 @@ var $slide = document.querySelector('li')
 $slide.classList.add('showing')
 
 function carousel() {
-  $currentSlide = document.querySelector('.showing')
+  var $currentSlide = document.querySelector('.showing')
 
   if ($currentSlide.nextElementSibling !== null) {
     $currentSlide.classList.remove('showing')
@@ -81,7 +107,64 @@ function carousel() {
     $currentSlide.classList.remove('showing')
     $slide.classList.add('showing')
   }
-
 }
 
-var interval = setInterval(carousel, 3500)
+var carouselInterval = setInterval(carousel, 3500)
+
+function search(searchItem, songs) {
+  var index = 0
+  var songCompare
+
+  while (searchItem !== songCompare && index < songs.length) {
+    songCompare = songs[index].title
+    index++
+  }
+  if (searchItem === songCompare) {
+    songCompare = songs[index - 1]
+  }
+  else {
+    songCompare = 'Sorry, we could not find that song.'
+  }
+  return songCompare
+}
+
+function renderElement(song) {
+  var $li = document.createElement('li')
+  $li.classList.add('showing')
+  $li.classList.add('slide')
+
+  if (song !== 'Sorry, we could not find that song.') {
+    var $img = document.createElement('img')
+    $img.classList.add('picture')
+    $img.src = song.image
+    var $artist = document.createElement('div')
+    $artist.textContent = song.artist
+    var $title = document.createElement('div')
+    $title.textContent = song.title
+
+    $li.appendChild($img)
+    $li.appendChild($artist)
+    $li.appendChild($title)
+  }
+  else {
+    $li.textContent = song
+  }
+  return $li
+}
+
+var $form = document.querySelector('form')
+
+$form.addEventListener('submit', function () {
+  event.preventDefault()
+
+  clearInterval(carouselInterval)
+
+  var $searchItem = document.querySelector('#term').value
+  var foundSong = search($searchItem, songs)
+  var $song = renderElement(foundSong)
+
+  var $ul = document.querySelector('ul')
+  $ul.innerHTML = ''
+  $ul.appendChild($song)
+
+})
