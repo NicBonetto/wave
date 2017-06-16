@@ -63,6 +63,8 @@ var songs = [
   }
 ]
 
+var playlist = []
+
 function createList() {
   var $ul = document.querySelector('ul')
 
