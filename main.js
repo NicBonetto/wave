@@ -109,7 +109,7 @@ function carousel() {
   }
 }
 
-var interval = setInterval(carousel, 3500)
+var carouselInterval = setInterval(carousel, 3500)
 
 function search(searchItem, songs) {
   var index = 0
@@ -157,7 +157,7 @@ var $form = document.querySelector('form')
 $form.addEventListener('submit', function () {
   event.preventDefault()
 
-  clearInterval(interval)
+  clearInterval(carouselInterval)
 
   var $searchItem = document.querySelector('#term').value
   var foundSong = search($searchItem, songs)
