@@ -175,6 +175,23 @@ function addPlaylist(playlist, song) {
   playlist.push(song)
 }
 
+var playIndex = 0
+
+function renderPlaylist(playlist, index) {
+  var $row = document.createElement('tr')
+
+  var $tableArtist = document.createElement('td')
+  $tableArtist.textContent = playlist[index].artist
+
+  var $tableTitle = document.createElement('td')
+  $tableTitle.textContent = playlist[index].title
+
+  $row.appendChild($tableArtist)
+  $row.appendChild($tableTitle)
+
+  return $row
+}
+
 var $carousel = document.querySelector('.carousel')
 
 $carousel.addEventListener('click', function () {
