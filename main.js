@@ -171,6 +171,10 @@ $form.addEventListener('submit', function () {
 
 })
 
+function addPlaylist(playlist, song) {
+  playlist.push(song)
+}
+
 var $carousel = document.querySelector('.carousel')
 
 $carousel.addEventListener('click', function () {
