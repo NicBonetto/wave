@@ -170,3 +170,9 @@ $form.addEventListener('submit', function () {
   $ul.appendChild($song)
 
 })
+
+var $carousel = document.querySelector('.carousel')
+
+$carousel.addEventListener('click', function () {
+
+})
