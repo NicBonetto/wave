@@ -2,7 +2,7 @@
 
 var songs = [
   {
-    image: 'https://images-na.ssl-images-amazon.com/images/I/81ZH8lGiGRL._SY355_.jpg',
+    image: 'http://dis.resized.images.s3.amazonaws.com/540x540/98143.jpeg',
     artist: 'Ben Howard',
     title: 'I Forget Where We Were'
   },
@@ -63,16 +63,20 @@ var songs = [
   }
 ]
 
-var $ul = document.querySelector('ul')
-
 function createList() {
+  var $ul = document.querySelector('ul')
+
   for (var i = 0; i < songs.length; i++) {
     var $newLi = document.createElement('li')
     $newLi.classList.add('slide')
-
     var $img = document.createElement('img')
+    $img.classList.add('img-responsive')
     var $artist = document.createElement('div')
+    $artist.classList.add('artist')
+    $artist.classList.add('text-center')
     var $title = document.createElement('div')
+    $title.classList.add('title')
+    $title.classList.add('text-center')
 
     $img.src = songs[i].image
     $newLi.appendChild($img)
@@ -103,7 +107,6 @@ function carousel() {
     $currentSlide.classList.remove('showing')
     $slide.classList.add('showing')
   }
-
 }
 
 var interval = setInterval(carousel, 3500)
@@ -125,40 +128,43 @@ function search(searchItem, songs) {
   return songCompare
 }
 
-function renderElements(song) {
-  var $output = document.createElement('li')
-  $output.classList.add('song-result')
+function renderElement(song) {
+  var $li = document.createElement('li')
+  $li.classList.add('showing')
+  $li.classList.add('slide')
 
-  if (song === 'Sorry, we could not find that song.') {
-    $output.textContent = song
+  if (song !== 'Sorry, we could not find that song.') {
+    var $img = document.createElement('img')
+    $img.classList.add('picture')
+    $img.src = song.image
+    var $artist = document.createElement('div')
+    $artist.textContent = song.artist
+    var $title = document.createElement('div')
+    $title.textContent = song.title
+
+    $li.appendChild($img)
+    $li.appendChild($artist)
+    $li.appendChild($title)
   }
   else {
-    var $searchImg = document.createElement('img')
-    $searchImg.classList.add('thumbnail')
-    var $searchArtist = document.createElement('div')
-    $searchArtist.classList.add('song-artist')
-    var $searchTitle = document.createElement('div')
-    $searchTitle.classList.add('song-title')
-
-    $searchImg.src = song.image
-    $searchArtist.textContent = song.artist
-    $searchTitle.textContent = song.title
-
-    $output.appendChild($searchImg)
-    $output.appendChild($searchArtist)
-    $output.appendChild($searchTitle)
+    $li.textContent = song
   }
-  return $output
+  return $li
 }
 
-var $button = document.querySelector('button')
+var $form = document.querySelector('form')
 
-$button.addEventListener('click', function () {
-  var $results = document.querySelector('.results')
-  $results.innerHTML = ''
-  var $searchItem = document.querySelector('input').value
+$form.addEventListener('submit', function () {
+  event.preventDefault()
+
+  clearInterval(interval)
+
+  var $searchItem = document.querySelector('#term').value
   var foundSong = search($searchItem, songs)
-  var $song = renderElements(foundSong)
+  var $song = renderElement(foundSong)
 
-  $results.appendChild($song)
+  var $ul = document.querySelector('ul')
+  $ul.innerHTML = ''
+  $ul.appendChild($song)
+
 })
