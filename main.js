@@ -195,5 +195,16 @@ function renderPlaylist(playlist, index) {
 var $carousel = document.querySelector('.carousel')
 
 $carousel.addEventListener('click', function () {
+  var $showing = document.querySelector('.showing')
+  var $title = $showing.lastChild.textContent
 
+  var song = search($title, songs)
+
+  addPlaylist(playlist, song)
+  var row = renderPlaylist(playlist, playIndex)
+
+  var $tbody = document.querySelector('tbody')
+
+  $tbody.appendChild(row)
+  playIndex++
 })
