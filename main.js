@@ -208,3 +208,7 @@ $carousel.addEventListener('click', function () {
   $tbody.appendChild(row)
   playIndex++
 })
+
+$carousel.addEventListener('mouseover', function () {
+  $carousel.style.cursor = 'pointer'
+})
