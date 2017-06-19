@@ -63,7 +63,14 @@ var songs = [
   }
 ]
 
-var playlist = []
+var users = {
+  playlists: []
+}
+
+var playlist = {
+  title: '',
+  songs: []
+}
 
 function createList() {
   var $ul = document.querySelector('ul')
@@ -172,7 +179,7 @@ $form.addEventListener('submit', function () {
 })
 
 function addPlaylist(playlist, song) {
-  playlist.push(song)
+  playlist.songs.push(song)
 }
 
 var playIndex = 0
@@ -181,10 +188,10 @@ function renderPlaylist(playlist, index) {
   var $row = document.createElement('tr')
 
   var $tableArtist = document.createElement('td')
-  $tableArtist.textContent = playlist[index].artist
+  $tableArtist.textContent = playlist.songs[index].artist
 
   var $tableTitle = document.createElement('td')
-  $tableTitle.textContent = playlist[index].title
+  $tableTitle.textContent = playlist.songs[index].title
 
   $row.appendChild($tableArtist)
   $row.appendChild($tableTitle)
@@ -192,9 +199,9 @@ function renderPlaylist(playlist, index) {
   return $row
 }
 
-var $carousel = document.querySelector('.carousel')
+var $button = document.querySelector('button')
 
-$carousel.addEventListener('click', function () {
+$button.addEventListener('click', function () {
   var $showing = document.querySelector('.showing')
   var $title = $showing.lastChild.textContent
 
@@ -209,6 +216,38 @@ $carousel.addEventListener('click', function () {
   playIndex++
 })
 
-$carousel.addEventListener('mouseover', function () {
-  $carousel.style.cursor = 'pointer'
+function createPlaylistName(name) {
+  var $th = document.createElement('th')
+  $th.classList.add('replace')
+  $th.textContent = name
+
+  return $th
+}
+
+function savePlaylist() {
+  var $input = document.querySelector('.playlist-name')
+  var $name = $input.value
+  playlist.title = $name
+  users.playlists.push(playlist)
+}
+
+function resetPlaylist() {
+  var $table = document.querySelector('table')
+  var $oldTbody = document.querySelector('tbody')
+  var $newTbody = document.createElement('tbody')
+
+  $table.replaceChild($newTbody, $oldTbody)
+}
+
+var $save = document.querySelector('.save')
+
+$save.addEventListener('click', function () {
+  savePlaylist()
+  resetPlaylist()
+
+  playlist = {
+    title: '',
+    songs: []
+  }
+  playIndex = 0
 })

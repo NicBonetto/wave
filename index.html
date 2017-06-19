@@ -27,16 +27,27 @@
       <div class="carousel col-xs-12">
         <ul class="col-xs-3 col-xs-offset-4">
         </ul>
-        <div class="col-xs-3 col-xs-offset-2">
+        <div class="col-xs-1">
+          <button class="btn btn-sm add">Add+</button>
+        </div>
+        <div class="col-xs-3 col-xs-offset-1">
           <table class="table table-inverse table-sm">
             <thead>
               <tr>
-                <th>Playlist</th>
+                <th>Playlist: </th>
+                <th class="replace">
+                  <div class="input-group input-group-sm">
+                    <input type="text" class="form-control playlist-name" placeholder="Playlist Name"/>
+                  </div>
+                </th>
               </tr>
             </thead>
             <tbody>
             </tbody>
           </table>
+          <div class="clearfix">
+            <button class="btn btn-sm btn-success save pull-right">Save</button>
+          </div>
         </div>
       </div>
     </div>
@@ -44,7 +55,6 @@
       <hr/>
     </div>
   </div>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
