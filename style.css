@@ -21,7 +21,7 @@
   color: black;
   letter-spacing: 2px;
   text-align: center;
-  margin-bottom: 36rem;
+  margin-bottom: 20rem;
 }
 
 #search {
@@ -52,4 +52,35 @@ img {
 
 .picture {
   width: 250px;
+}
+
+table {
+  margin-bottom: 40rem;
+}
+
+tr {
+  font-size: 10px;
+}
+
+th {
+  font-size: 15px;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.save {
+  background-color: #6b7fa0;
+  border: solid black;
+  border-width: 1px;
+}
+
+.add {
+  margin-top: 15rem;
+  margin-right: 30rem;
 }
