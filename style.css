@@ -16,8 +16,6 @@
 .wrapper {
   background-color: rgba(10, 30, 67, 0.2);
   height: 26rem;
-  width: 97%;
-  margin-left: 18px;
   border: solid rgba(1, 8, 21, 0.1);
   border-width: 1px;
   border-radius: 5px;
