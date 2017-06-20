@@ -65,6 +65,8 @@ img {
 
 table {
   margin-bottom: 40rem;
+  border: solid black;
+  border-width: 2px;
 }
 
 tr {
