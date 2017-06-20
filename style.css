@@ -19,6 +19,7 @@
   border: solid black;
   border-width: 1px;
   border-radius: 5px;
+  overflow: auto;
 }
 
 .carousel {
