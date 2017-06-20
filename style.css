@@ -89,6 +89,7 @@ button {
   background-color: #6b7fa0;
   border: solid black;
   border-width: 1px;
+  box-shadow: 2px 1px 1px black;
 }
 
 .add {
