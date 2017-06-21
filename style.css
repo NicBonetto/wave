@@ -7,10 +7,19 @@
 .artist,
 .title,
 #search {
-  color: black;
+  color: rgba(1, 8, 21, 1);
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   letter-spacing: 2px;
+}
+
+.wrapper {
+  background-color: rgba(10, 30, 67, 0.2);
+  height: 26rem;
+  border: solid rgba(1, 8, 21, 0.1);
+  border-width: 1px;
+  border-radius: 5px;
+  overflow: auto;
 }
 
 .carousel {
@@ -46,8 +55,9 @@ li {
 }
 
 img {
-  border: solid black;
+  border: solid rgba(1, 8, 21, 0.5);
   border-width: 1px;
+  box-shadow: 4px 2px 2px rgba(1, 8, 21, 0.2);
 }
 
 .picture {
@@ -56,6 +66,8 @@ img {
 
 table {
   margin-bottom: 40rem;
+  border: solid rgba(5, 24, 56, 0.3);
+  border-width: 2px;
 }
 
 tr {
@@ -75,12 +87,13 @@ button {
 }
 
 .save {
-  background-color: #6b7fa0;
-  border: solid black;
+  background-color: rgba(103, 123, 159, 1);
+  border: solid rgba(1, 8, 21, 0.1);
   border-width: 1px;
+  box-shadow: 2px 1px 1px rgba(5, 24, 56, 0.2);
 }
 
 .add {
-  margin-top: 15rem;
+  margin-top: 14rem;
   margin-right: 30rem;
 }
