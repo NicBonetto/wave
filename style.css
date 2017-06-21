@@ -40,6 +40,15 @@
   margin-top: 1rem;
 }
 
+.go {
+  color: white;
+  margin-top: 1rem;
+  background-color: rgba(103, 123, 159, 1);
+  border: solid rgba(1, 8, 21, 0.1);
+  border-width: 1px;
+  box-shadow: 2px 1px 1px rgba(5, 24, 56, 0.2);
+}
+
 .artist,
 .title,
 #search {
