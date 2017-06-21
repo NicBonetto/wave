@@ -63,12 +63,7 @@ var songs = [
   }
 ]
 
-var users = [
-  {
-    user: '',
-    playlists: []
-  }
-]
+var users = []
 
 var playlist = {
   title: '',
@@ -84,6 +79,16 @@ function searchUsersName(name, list) {
     }
   }
   return found
+}
+
+function createNewUser(name, list) {
+  var newUser = {
+    user: '',
+    songs: []
+  }
+
+  newUser.user = name
+  list.push(newUser)
 }
 
 function createList() {
