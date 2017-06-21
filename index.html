@@ -12,6 +12,21 @@
 <body>
   <div class="container">
     <div class="row">
+      <div class="showing">
+        <div class="col-xs-2">
+          <div class="wave h2">Wave</div>
+        </div>
+        <div class="col-xs-10">
+          <a class="pull-right" id="playlist-link">Playlists</a>
+        </div>
+        <div class="col-xs-12">
+          <hr/>
+        </div>
+        <div class="login-wrapper col-xs-12">
+          <h2 class="login-prompt">START A PLAYLIST:</h2>
+        </div>
+      </div>
+      <div class="hidden">
         <div class="col-xs-2">
           <div class="wave h2">Wave</div>
         </div>
@@ -23,43 +38,35 @@
             </div>
           </form>
         </div>
-      <div class="col-xs-12">
-        <hr/>
-      </div>
-      <div class="col-xs-12 showing">
-        
-      </div>
-      <div class="col-xs-12 wrapper hidden">
-        <div class="carousel col-xs-12">
-          <ul class="col-xs-3 col-xs-offset-4">
-          </ul>
-          <div class="col-xs-1">
-            <button class="btn btn-sm add">Add+</button>
-          </div>
-          <div class="col-xs-3 col-xs-offset-1">
-            <table class="table table-inverse table-sm">
-              <thead>
-                <tr>
-                  <th>Playlist: </th>
-                  <th class="replace">
-                    <div class="input-group input-group-sm">
-                      <input type="text" class="form-control playlist-name" placeholder="Playlist Name"/>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-            <div class="clearfix">
-              <button class="btn btn-sm btn-success save pull-right">Save</button>
+        <div class="col-xs-12 playlist-wrapper">
+          <div class="carousel col-xs-12">
+            <ul class="col-xs-3 col-xs-offset-4">
+            </ul>
+            <div class="col-xs-1">
+              <button class="btn btn-sm add">Add+</button>
+            </div>
+            <div class="col-xs-3 col-xs-offset-1">
+              <table class="table table-inverse table-sm">
+                <thead>
+                  <tr>
+                    <th>Playlist: </th>
+                    <th class="replace">
+                      <div class="input-group input-group-sm">
+                        <input type="text" class="form-control playlist-name" placeholder="Playlist Name"/>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <div class="clearfix">
+                <button class="btn btn-sm btn-success save pull-right">Save</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12">
-      <hr/>
     </div>
   </div>
   <script src="main.js"></script>
