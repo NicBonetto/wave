@@ -70,6 +70,8 @@ var playlist = {
   songs: []
 }
 
+var userIndex = 0
+
 function searchUsersName(name, list) {
   var found = false
 
@@ -109,6 +111,10 @@ function switchShowing(oldPage, newPage) {
 
   newPage.classList.remove('hidden')
   newPage.classList.add('showing')
+}
+
+function savePlaylistName(pName, playlist) {
+  playlist.title = pName
 }
 
 function createList() {
