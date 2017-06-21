@@ -63,13 +63,27 @@ var songs = [
   }
 ]
 
-var users = {
-  playlists: []
-}
+var users = [
+  {
+    user: '',
+    playlists: []
+  }
+]
 
 var playlist = {
   title: '',
   songs: []
+}
+
+function searchUsersName(name, list) {
+  var found = false
+
+  for (var i = 0; i < list.length; i++) {
+    if (name === list[i].user) {
+      found = true
+    }
+  }
+  return found
 }
 
 function createList() {
