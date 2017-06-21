@@ -103,6 +103,14 @@ function saveUserIndex(name, list) {
   return index
 }
 
+function switchShowing(oldPage, newPage) {
+  oldPage.classList.remove('showing')
+  oldPage.classList.add('hidden')
+
+  newPage.classList.remove('hidden')
+  newPage.classList.add('showing')
+}
+
 function createList() {
   var $ul = document.querySelector('ul')
 
