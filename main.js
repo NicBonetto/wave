@@ -91,6 +91,18 @@ function createNewUser(name, list) {
   list.push(newUser)
 }
 
+function saveUserIndex(name, list) {
+  var user = ''
+  var index = 0
+
+  while (user !== name) {
+    user = list[index].user
+    index++
+  }
+  index -= index
+  return index
+}
+
 function createList() {
   var $ul = document.querySelector('ul')
 
