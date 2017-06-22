@@ -301,6 +301,24 @@ function deleteSong(i, playlist) {
   playlist.songs.splice(i, 1)
 }
 
+var $table = document.querySelector('table')
+
+$table.addEventListener('click', function (event) {
+  if (event.target.classList.contains('delete')) {
+    deleteSong(event.target.id, playlist)
+    resetPlaylist()
+    playIndex = 0
+
+    for (playIndex = 0; playIndex < playlist.songs.length; playIndex++) {
+      var $tbody = document.querySelector('tbody')
+
+      var row = renderPlaylist(playlist, playIndex)
+
+      $tbody.appendChild(row)
+    }
+  }
+})
+
 function savePlaylist() {
   users[userIndex].playlists.push(playlist)
 }
