@@ -105,17 +105,41 @@ function saveUserIndex(name, list) {
   return index
 }
 
-function switchShowing(oldPage, newPage) {
-  oldPage.classList.remove('showing')
-  oldPage.classList.add('hidden')
-
-  newPage.classList.remove('hidden')
-  newPage.classList.add('showing')
+function showPlaylist(view) {
+  for (var i = 0; i < view.length; i++) {
+    if (view[i].id !== 'playlist-page') {
+      view[i].classList.add('hidden-div')
+    }
+    else {
+      view[i].classList.remove('hidden-div')
+    }
+  }
 }
 
 function savePlaylistName(pName, playlist) {
   playlist.title = pName
 }
+
+var $go = document.querySelector('.go')
+
+$go.addEventListener('click', function () {
+  var $views = document.querySelectorAll('.views')
+  var $userName = document.querySelector('#user-name').value
+  var $playlistName = document.querySelector('#playlist-name').value
+  var foundName
+
+  foundName = searchUsersName($userName, users)
+
+  if (foundName !== true) {
+    createNewUser($userName, users)
+  }
+
+  userIndex = saveUserIndex($userName, users)
+  savePlaylistName($playlistName, playlist)
+
+  showPlaylist($views)
+
+})
 
 function createList() {
   var $ul = document.querySelector('ul')

@@ -1,12 +1,9 @@
-.hidden {
-  opacity: 0;
-}
-
-.showing {
-  opacity: 1;
+.hidden-div {
+  display: none;
 }
 
 .wave {
+  margin-top: 1rem;
   font-family: 'Bubbler One', sans-serif;
   color: black;
   letter-spacing: 1px;
