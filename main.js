@@ -63,14 +63,83 @@ var songs = [
   }
 ]
 
-var users = {
-  playlists: []
-}
+var users = []
 
 var playlist = {
   title: '',
   songs: []
 }
+
+var userIndex = 0
+
+function searchUsersName(name, list) {
+  var found = false
+
+  for (var i = 0; i < list.length; i++) {
+    if (name === list[i].user) {
+      found = true
+    }
+  }
+  return found
+}
+
+function createNewUser(name, list) {
+  var newUser = {
+    user: '',
+    songs: []
+  }
+
+  newUser.user = name
+  list.push(newUser)
+}
+
+function saveUserIndex(name, list) {
+  var user = ''
+  var index = 0
+
+  while (user !== name) {
+    user = list[index].user
+    index++
+  }
+  index -= index
+  return index
+}
+
+function showPlaylist(view) {
+  for (var i = 0; i < view.length; i++) {
+    if (view[i].id !== 'playlist-page') {
+      view[i].classList.add('hidden-div')
+    }
+    else {
+      view[i].classList.remove('hidden-div')
+    }
+  }
+}
+
+function savePlaylistName(pName, playlist) {
+  playlist.title = pName
+}
+
+var $go = document.querySelector('.go')
+
+$go.addEventListener('click', function () {
+  var $views = document.querySelectorAll('.views')
+  var $userName = document.querySelector('#user-name').value
+  var $playlistName = document.querySelector('#playlist-name').value
+  var foundName
+
+  foundName = searchUsersName($userName, users)
+
+  if (foundName !== true) {
+    createNewUser($userName, users)
+  }
+
+  userIndex = saveUserIndex($userName, users)
+  savePlaylistName($playlistName, playlist)
+
+  showPlaylist($views)
+
+})
 
 function createList() {
   var $ul = document.querySelector('ul')
