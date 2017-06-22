@@ -86,7 +86,7 @@ function searchUsersName(name, list) {
 function createNewUser(name, list) {
   var newUser = {
     user: '',
-    songs: []
+    playlists: []
   }
 
   newUser.user = name
@@ -294,10 +294,7 @@ function createPlaylistName(name) {
 }
 
 function savePlaylist() {
-  var $input = document.querySelector('.playlist-name')
-  var $name = $input.value
-  playlist.title = $name
-  users.playlists.push(playlist)
+  users[userIndex].playlists.push(playlist)
 }
 
 function resetPlaylist() {
