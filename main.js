@@ -262,8 +262,18 @@ function renderPlaylist(playlist, index) {
   var $tableTitle = document.createElement('td')
   $tableTitle.textContent = playlist.songs[index].title
 
+  var $tableButton = document.createElement('td')
+  var $deleteButton = document.createElement('button')
+  $deleteButton.classList.add('btn')
+  $deleteButton.classList.add('btn-sm')
+  $deleteButton.classList.add('btn-danger')
+  $deleteButton.classList.add('delete')
+  $deleteButton.textContent = '-'
+  $tableButton.appendChild($deleteButton)
+
   $row.appendChild($tableArtist)
   $row.appendChild($tableTitle)
+  $row.appendChild($tableButton)
 
   return $row
 }
