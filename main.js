@@ -86,7 +86,7 @@ function searchUsersName(name, list) {
 function createNewUser(name, list) {
   var newUser = {
     user: '',
-    songs: []
+    playlists: []
   }
 
   newUser.user = name
@@ -262,21 +262,33 @@ function renderPlaylist(playlist, index) {
   var $tableTitle = document.createElement('td')
   $tableTitle.textContent = playlist.songs[index].title
 
+  var $tableButton = document.createElement('td')
+  var $deleteButton = document.createElement('button')
+  $deleteButton.classList.add('btn')
+  $deleteButton.classList.add('btn-sm')
+  $deleteButton.classList.add('btn-danger')
+  $deleteButton.classList.add('delete')
+  $deleteButton.id = index
+  $deleteButton.textContent = '-'
+  $tableButton.appendChild($deleteButton)
+
   $row.appendChild($tableArtist)
   $row.appendChild($tableTitle)
+  $row.appendChild($tableButton)
 
   return $row
 }
 
-var $button = document.querySelector('button')
+var $add = document.querySelector('.add')
 
-$button.addEventListener('click', function () {
+$add.addEventListener('click', function () {
   var $showing = document.querySelector('.showing')
   var $title = $showing.lastChild.textContent
 
   var song = search($title, songs)
 
   addPlaylist(playlist, song)
+
   var row = renderPlaylist(playlist, playIndex)
 
   var $tbody = document.querySelector('tbody')
@@ -285,19 +297,30 @@ $button.addEventListener('click', function () {
   playIndex++
 })
 
-function createPlaylistName(name) {
-  var $th = document.createElement('th')
-  $th.classList.add('replace')
-  $th.textContent = name
-
-  return $th
+function deleteSong(i, playlist) {
+  playlist.songs.splice(i, 1)
 }
 
+var $table = document.querySelector('table')
+
+$table.addEventListener('click', function (event) {
+  if (event.target.classList.contains('delete')) {
+    deleteSong(event.target.id, playlist)
+    resetPlaylist()
+    playIndex = 0
+
+    for (playIndex = 0; playIndex < playlist.songs.length; playIndex++) {
+      var $tbody = document.querySelector('tbody')
+
+      var row = renderPlaylist(playlist, playIndex)
+
+      $tbody.appendChild(row)
+    }
+  }
+})
+
 function savePlaylist() {
-  var $input = document.querySelector('.playlist-name')
-  var $name = $input.value
-  playlist.title = $name
-  users.playlists.push(playlist)
+  users[userIndex].playlists.push(playlist)
 }
 
 function resetPlaylist() {
