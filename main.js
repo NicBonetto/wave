@@ -268,6 +268,7 @@ function renderPlaylist(playlist, index) {
   $deleteButton.classList.add('btn-sm')
   $deleteButton.classList.add('btn-danger')
   $deleteButton.classList.add('delete')
+  $deleteButton.id = index
   $deleteButton.textContent = '-'
   $tableButton.appendChild($deleteButton)
 
@@ -287,6 +288,7 @@ $add.addEventListener('click', function () {
   var song = search($title, songs)
 
   addPlaylist(playlist, song)
+
   var row = renderPlaylist(playlist, playIndex)
 
   var $tbody = document.querySelector('tbody')
@@ -295,12 +297,8 @@ $add.addEventListener('click', function () {
   playIndex++
 })
 
-function createPlaylistName(name) {
-  var $th = document.createElement('th')
-  $th.classList.add('replace')
-  $th.textContent = name
-
-  return $th
+function deleteSong(i, playlist) {
+  playlist.songs.splice(i, 1)
 }
 
 function savePlaylist() {
