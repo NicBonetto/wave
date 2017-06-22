@@ -341,3 +341,22 @@ $save.addEventListener('click', function () {
   }
   playIndex = 0
 })
+
+function showCommunity(view) {
+  for (var i = 0; i < view.length; i++) {
+    if (view[i].id !== 'community-page') {
+      view[i].classList.add('hidden-div')
+    }
+    else {
+      view[i].classList.remove('hidden-div')
+    }
+  }
+}
+
+var $playlistLink = document.querySelector('.playlist-link')
+
+$playlistLink.addEventListener('click', function () {
+  var $views = document.querySelectorAll('.views')
+
+  showCommunity($views)
+})
