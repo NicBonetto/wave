@@ -268,9 +268,9 @@ function renderPlaylist(playlist, index) {
   return $row
 }
 
-var $button = document.querySelector('button')
+var $add = document.querySelector('.add')
 
-$button.addEventListener('click', function () {
+$add.addEventListener('click', function () {
   var $showing = document.querySelector('.showing')
   var $title = $showing.lastChild.textContent
 
