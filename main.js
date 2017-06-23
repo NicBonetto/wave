@@ -60,7 +60,43 @@ var songs = [
     image: 'https://images.genius.com/be5fe24a47ad0c465004d529d74eb7d6.807x807x1.jpg',
     artist: 'The Japanese House',
     title: 'Face Like Thunder'
+  },
+  {
+    image: 'https://upload.wikimedia.org/wikipedia/en/9/9e/Lionel_Richie_Hello.jpg',
+    artist: 'Lionel Richie',
+    title: 'Hello'
+  },
+  {
+    image: 'http://www.pophistorydig.com//wp-content/uploads/2008/03/1973-goodbye-yellow-brk-rd-60.jpg',
+    artist: 'Elton John',
+    title: 'Candle in the Wind'
+  },
+  {
+    image: 'https://images-na.ssl-images-amazon.com/images/I/41bKfBmcdRL.jpg',
+    artist: 'Ben Howard',
+    title: 'Promise'
+  },
+  {
+    image: 'https://i.ytimg.com/vi/fJ9rUzIMcZQ/hqdefault.jpg',
+    artist: 'Queen',
+    title: 'Bohemian Rhapsody'
+  },
+  {
+    image: 'http://images.genius.com/592617e90a52c31a1e815e4b7fb37891.1000x1000x1.jpg',
+    artist: 'Bon Iver',
+    title: '8 Circle'
+  },
+  {
+    image: 'https://images.genius.com/a025fa2ebf5dd7e5411b8e71f63ac395.1000x954x1.jpg',
+    artist: 'Red Hot Chili Peppers',
+    title: 'Tell Me Baby'
+  },
+  {
+    image: 'https://images.genius.com/c8bc624ea7d430d81b33faec31b21bf7.640x640x1.jpg',
+    artist: 'James Blake',
+    title: 'I Need a Forest Fire'
   }
+
 ]
 
 var users = []
