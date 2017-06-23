@@ -443,14 +443,11 @@ function displayAllPlaylists(users, playlist, uindex) {
 
   var $thead = document.createElement('thead')
   var $trHead = document.createElement('tr')
-  var $th1 = document.createElement('th')
-  var $th2 = document.createElement('th')
+  var $th = document.createElement('th')
 
-  $th1.textContent = users[uindex].user
-  $th2.textContent = playlist.title
+  $th.textContent = playlist.title + ': by ' + users[uindex].user
 
-  $trHead.appendChild($th1)
-  $trHead.appendChild($th2)
+  $trHead.appendChild($th)
   $thead.appendChild($trHead)
   $table.appendChild($thead)
 
