@@ -230,11 +230,14 @@ function search(searchItem, songs) {
   var index = 0
   var songCompare
 
-  while (searchItem !== songCompare && index < songs.length) {
+  do {
+
     songCompare = songs[index].title
     index++
-  }
-  if (searchItem === songCompare) {
+
+  } while (searchItem.toUpperCase() !== songCompare.toUpperCase() && index < songs.length)
+
+  if (searchItem.toUpperCase() === songCompare.toUpperCase()) {
     songCompare = songs[index - 1]
   }
   else {
