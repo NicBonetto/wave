@@ -101,7 +101,8 @@ function saveUserIndex(name, list) {
     user = list[index].user
     index++
   }
-  index -= index
+  index--
+
   return index
 }
 
@@ -332,6 +333,9 @@ function resetPlaylist() {
 var $save = document.querySelector('.save')
 
 $save.addEventListener('click', function () {
+  var $community = document.querySelector('.community-wrapper')
+  var $table = displayAllPlaylists(users, playlist, userIndex)
+  $community.appendChild($table)
   savePlaylist()
   resetPlaylist()
 
@@ -388,3 +392,48 @@ $playlistLink2.addEventListener('click', function () {
 
   showCommunity($views)
 })
+
+function displayAllPlaylists(users, playlist, uindex) {
+  var $table = document.createElement('table')
+  var $div = document.createElement('div')
+  $div.classList.add('col-xs-4')
+
+  $table.classList.add('table')
+  $table.classList.add('table-inverse')
+  $table.classList.add('table-sm')
+
+  var $thead = document.createElement('thead')
+  var $trHead = document.createElement('tr')
+  var $th1 = document.createElement('th')
+  var $th2 = document.createElement('th')
+
+  $th1.textContent = users[uindex].user
+  $th2.textContent = playlist.title
+
+  $trHead.appendChild($th1)
+  $trHead.appendChild($th2)
+  $thead.appendChild($trHead)
+  $table.appendChild($thead)
+
+  var $tbody = document.createElement('tbody')
+
+  for (var i = 0; i < playlist.songs.length; i++) {
+    var $trRow = document.createElement('tr')
+    var $title = document.createElement('td')
+    var $artist = document.createElement('td')
+
+    $title.textContent = playlist.songs[i].title
+    $artist.textContent = playlist.songs[i].artist
+
+    $trRow.appendChild($title)
+    $trRow.appendChild($artist)
+
+    $tbody.appendChild($trRow)
+  }
+
+  $table.appendChild($tbody)
+  $div.appendChild($table)
+
+  return $div
+
+}
