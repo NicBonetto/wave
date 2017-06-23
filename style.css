@@ -16,6 +16,10 @@
   z-index: -1;
 }
 
+hr {
+  border: 1px solid white;
+}
+
 .hidden-div {
   display: none;
 }
@@ -28,7 +32,7 @@
 }
 
 .playlist-link {
-  color: white;
+  color: rgba(14, 33, 76, 0.8);
   margin-top: 1rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -37,7 +41,7 @@
 }
 
 .create-link {
-  color: rgba(103, 123, 159, 1);
+  color: rgba(14, 33, 76, 0.8);
   margin-top: 1rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -59,6 +63,15 @@
   font-weight: 300;
   letter-spacing: 1px;
   margin-top: 1rem;
+  color: rgba(217, 223, 237, 0.9);
+}
+
+.check-playlist-prompt {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  color: rgba(0, 4, 12, 0.7);
 }
 
 .input {
@@ -94,6 +107,15 @@
 .tracks-wrapper {
   background-color: rgba(10, 30, 67, 0.4);
   height: 26rem;
+  border: solid rgba(1, 8, 21, 0.1);
+  border-width: 1px;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.community-wrapper {
+  background-color: rgba(10, 30, 67, 0.4);
+  height: 52rem;
   border: solid rgba(1, 8, 21, 0.1);
   border-width: 1px;
   border-radius: 5px;
