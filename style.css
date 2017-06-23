@@ -16,6 +16,18 @@
   z-index: -1;
 }
 
+input {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+table {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
 hr {
   border: 1px solid white;
 }
