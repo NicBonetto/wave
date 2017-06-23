@@ -31,7 +31,8 @@ hr {
   letter-spacing: 1px;
 }
 
-.playlist-link {
+.playlist-link,
+.playlist-link2 {
   color: rgba(14, 33, 76, 0.8);
   margin-top: 1rem;
   font-family: 'Roboto', sans-serif;

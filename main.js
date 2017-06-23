@@ -360,3 +360,31 @@ $playlistLink.addEventListener('click', function () {
 
   showCommunity($views)
 })
+
+function showLogin(view) {
+  for (var i = 0; i < view.length; i++) {
+    if (view[i].id !== 'login-page') {
+      view[i].classList.add('hidden-div')
+    }
+    else {
+      view[i].classList.remove('hidden-div')
+    }
+  }
+}
+
+var $createLink = document.querySelector('.create-link')
+
+$createLink.addEventListener('click', function () {
+  var $views = document.querySelectorAll('.views')
+
+  showLogin($views)
+
+})
+
+var $playlistLink2 = document.querySelector('.playlist-link2')
+
+$playlistLink2.addEventListener('click', function () {
+  var $views = document.querySelectorAll('.views')
+
+  showCommunity($views)
+})
