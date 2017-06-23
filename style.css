@@ -1,3 +1,21 @@
+.background {
+  position: relative;
+}
+
+.background::before {
+  content: '';
+  display: block;
+  top: 0;
+  left: 0;
+  background-image: url(https://ak3.picdn.net/shutterstock/videos/12075860/thumb/1.jpg);
+  background-size: cover;
+  height: 100vw;
+  width: 100vw;
+  opacity: 0.3;
+  position: absolute;
+  z-index: -1;
+}
+
 .hidden-div {
   display: none;
 }
@@ -10,6 +28,15 @@
 }
 
 .playlist-link {
+  color: white;
+  margin-top: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.create-link {
   color: rgba(103, 123, 159, 1);
   margin-top: 1rem;
   font-family: 'Roboto', sans-serif;
@@ -20,7 +47,7 @@
 
 .login-wrapper {
   margin-top: 1rem;
-  background-color: rgba(10, 30, 67, 0.2);
+  background-color: rgba(10, 30, 67, 0.4);
   border: solid rgba(1, 8, 21, 0.1);
   border-width: 1px;
   border-radius: 5px;
@@ -41,7 +68,7 @@
 .go {
   color: white;
   margin-top: 1rem;
-  background-color: rgba(103, 123, 159, 1);
+  background-color: rgba(177, 187, 210, 0.9);
   border: solid rgba(1, 8, 21, 0.1);
   border-width: 1px;
   box-shadow: 2px 1px 1px rgba(5, 24, 56, 0.2);
@@ -57,7 +84,7 @@
 }
 
 .playlist-wrapper {
-  background-color: rgba(10, 30, 67, 0.2);
+  background-color: rgba(10, 30, 67, 0.4);
   height: 26rem;
   border: solid rgba(1, 8, 21, 0.1);
   border-width: 1px;
@@ -65,7 +92,7 @@
 }
 
 .tracks-wrapper {
-  background-color: rgba(10, 30, 67, 0.2);
+  background-color: rgba(10, 30, 67, 0.4);
   height: 26rem;
   border: solid rgba(1, 8, 21, 0.1);
   border-width: 1px;

@@ -10,81 +10,89 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
   </head>
   <body>
-    <div class="container">
-      <div class="row views" id="login-page">
-        <div class="col-xs-2">
-          <div class="wave h2">Wave</div>
-        </div>
-        <div class="col-xs-10">
-          <a class="pull-right playlist-link">Playlists</a>
-        </div>
-        <div class="col-xs-12">
-          <hr/>
-        </div>
-        <div class="login-wrapper col-xs-12">
-          <div class="col-xs-4">
-            <h2 class="login-prompt">START A PLAYLIST:</h2>
-            <div class="input-group">
-              <input type="text" class="form-control input" id="user-name" placeholder="Your Name"/>
-            </div>
-            <div class="input-group">
-              <input type="text" class="form-control input" id="playlist-name" placeholder="Playlist Name"/>
-            </div>
-            <div>
-              <button class="btn btn-sm go">Go</button>
-            </div>
+    <div class="background">
+      <div class="container">
+        <div class="row views" id="login-page">
+          <div class="col-xs-2">
+            <div class="wave h2">Wave</div>
           </div>
-        </div>
-        <div class="col-xs-12">
-          <hr/>
-        </div>
-      </div>
-      <div class="hidden-div row views" id="playlist-page">
-        <div class="col-xs-2">
-          <div class="wave h2">Wave</div>
-        </div>
-        <div class="col-xs-10">
-          <a class="pull-right playlist-link">Playlists</a>
-        </div>
-        <div class="col-xs-12">
-          <hr/>
-        </div>
-        <div class="col-xs-6 playlist-wrapper">
-          <div class="col-xs-6 col-xs-offset-2" id="search">
-            <form class="form-inline pull-right">
-              <div class="form-group">
-                <input type="text" id="term" class="form-control" placeholder="Title"/>
-                <span class="glyphicon glyphicon-search"></span>
+          <div class="col-xs-10">
+            <a class="pull-right playlist-link">Playlists</a>
+          </div>
+          <div class="col-xs-12">
+            <hr/>
+          </div>
+          <div class="login-wrapper col-xs-12">
+            <div class="col-xs-4">
+              <h2 class="login-prompt">START A PLAYLIST:</h2>
+              <div class="input-group">
+                <input type="text" class="form-control input" id="user-name" placeholder="Your Name"/>
               </div>
-            </form>
-          </div>
-          <ul class="col-xs-6 col-xs-offset-2">
-          </ul>
-          <div class="col-xs-1">
-            <button class="btn btn-sm add">Add+</button>
-          </div>
-        </div>
-        <div class="tracks-wrapper col-xs-5 col-xs-offset-1">
-          <div class="col-xs-10 col-xs-offset-1">
-            <table class="table table-inverse table-sm">
-              <thead>
-                <tr>
-                  <th>Tracks:</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-            <div class="clearfix">
-              <button class="btn btn-sm btn-success save pull-right">Save</button>
+              <div class="input-group">
+                <input type="text" class="form-control input" id="playlist-name" placeholder="Playlist Name"/>
+              </div>
+              <div>
+                <button class="btn btn-sm go">Go</button>
+              </div>
             </div>
           </div>
+          <div class="col-xs-12">
+            <hr/>
+          </div>
         </div>
-        <div class="col-xs-12">
-          <hr/>
+        <div class="hidden-div row views" id="playlist-page">
+          <div class="col-xs-2">
+            <div class="wave h2">Wave</div>
+          </div>
+          <div class="col-xs-10">
+            <a class="pull-right playlist-link">Playlists</a>
+          </div>
+          <div class="col-xs-12">
+            <hr/>
+          </div>
+          <div class="col-xs-6 playlist-wrapper">
+            <div class="col-xs-6 col-xs-offset-2" id="search">
+              <form class="form-inline pull-right">
+                <div class="form-group">
+                  <input type="text" id="term" class="form-control" placeholder="Title"/>
+                  <span class="glyphicon glyphicon-search"></span>
+                </div>
+              </form>
+            </div>
+            <ul class="col-xs-6 col-xs-offset-2">
+            </ul>
+            <div class="col-xs-1">
+              <button class="btn btn-sm add">Add+</button>
+            </div>
+          </div>
+          <div class="tracks-wrapper col-xs-5 col-xs-offset-1">
+            <div class="col-xs-10 col-xs-offset-1">
+              <table class="table table-inverse table-sm">
+                <thead>
+                  <tr>
+                    <th>Tracks:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <div class="clearfix">
+                <button class="btn btn-sm btn-success save pull-right">Save</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <hr/>
+          </div>
         </div>
-      </div>
-      <div class="hidden-div row views" id="community-page">
+        <div class="hidden-div row views" id="community-page">
+          <div class="col-xs-2">
+            <div class="wave h2">Wave</div>
+          </div>
+          <div class="col-xs-10">
+            <a class="pull-right create-link">Create a Playlist</a>
+          </div>
+        </div>
       </div>
     </div>
     <script src="main.js"></script>
