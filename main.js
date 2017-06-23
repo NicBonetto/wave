@@ -60,7 +60,43 @@ var songs = [
     image: 'https://images.genius.com/be5fe24a47ad0c465004d529d74eb7d6.807x807x1.jpg',
     artist: 'The Japanese House',
     title: 'Face Like Thunder'
+  },
+  {
+    image: 'https://upload.wikimedia.org/wikipedia/en/9/9e/Lionel_Richie_Hello.jpg',
+    artist: 'Lionel Richie',
+    title: 'Hello'
+  },
+  {
+    image: 'http://www.pophistorydig.com//wp-content/uploads/2008/03/1973-goodbye-yellow-brk-rd-60.jpg',
+    artist: 'Elton John',
+    title: 'Candle in the Wind'
+  },
+  {
+    image: 'https://images-na.ssl-images-amazon.com/images/I/41bKfBmcdRL.jpg',
+    artist: 'Ben Howard',
+    title: 'Promise'
+  },
+  {
+    image: 'https://i.ytimg.com/vi/fJ9rUzIMcZQ/hqdefault.jpg',
+    artist: 'Queen',
+    title: 'Bohemian Rhapsody'
+  },
+  {
+    image: 'http://images.genius.com/592617e90a52c31a1e815e4b7fb37891.1000x1000x1.jpg',
+    artist: 'Bon Iver',
+    title: '8 Circle'
+  },
+  {
+    image: 'https://images.genius.com/a025fa2ebf5dd7e5411b8e71f63ac395.1000x954x1.jpg',
+    artist: 'Red Hot Chili Peppers',
+    title: 'Tell Me Baby'
+  },
+  {
+    image: 'https://images.genius.com/c8bc624ea7d430d81b33faec31b21bf7.640x640x1.jpg',
+    artist: 'James Blake',
+    title: 'I Need a Forest Fire'
   }
+
 ]
 
 var users = []
@@ -101,7 +137,8 @@ function saveUserIndex(name, list) {
     user = list[index].user
     index++
   }
-  index -= index
+  index--
+
   return index
 }
 
@@ -193,11 +230,14 @@ function search(searchItem, songs) {
   var index = 0
   var songCompare
 
-  while (searchItem !== songCompare && index < songs.length) {
+  do {
+
     songCompare = songs[index].title
     index++
-  }
-  if (searchItem === songCompare) {
+
+  } while (searchItem.toUpperCase() !== songCompare.toUpperCase() && index < songs.length)
+
+  if (searchItem.toUpperCase() === songCompare.toUpperCase()) {
     songCompare = songs[index - 1]
   }
   else {
@@ -263,13 +303,11 @@ function renderPlaylist(playlist, index) {
   $tableTitle.textContent = playlist.songs[index].title
 
   var $tableButton = document.createElement('td')
-  var $deleteButton = document.createElement('button')
-  $deleteButton.classList.add('btn')
-  $deleteButton.classList.add('btn-sm')
-  $deleteButton.classList.add('btn-danger')
+  var $deleteButton = document.createElement('span')
+  $deleteButton.classList.add('glyphicon')
+  $deleteButton.classList.add('glyphicon-remove')
   $deleteButton.classList.add('delete')
   $deleteButton.id = index
-  $deleteButton.textContent = '-'
   $tableButton.appendChild($deleteButton)
 
   $row.appendChild($tableArtist)
@@ -334,6 +372,9 @@ function resetPlaylist() {
 var $save = document.querySelector('.save')
 
 $save.addEventListener('click', function () {
+  var $community = document.querySelector('.community-wrapper')
+  var $table = displayAllPlaylists(users, playlist, userIndex)
+  $community.appendChild($table)
   savePlaylist()
   resetPlaylist()
 
@@ -343,3 +384,92 @@ $save.addEventListener('click', function () {
   }
   playIndex = 0
 })
+
+function showCommunity(view) {
+  for (var i = 0; i < view.length; i++) {
+    if (view[i].id !== 'community-page') {
+      view[i].classList.add('hidden-div')
+    }
+    else {
+      view[i].classList.remove('hidden-div')
+    }
+  }
+}
+
+var $playlistLink = document.querySelector('.playlist-link')
+
+$playlistLink.addEventListener('click', function () {
+  var $views = document.querySelectorAll('.views')
+
+  showCommunity($views)
+})
+
+function showLogin(view) {
+  for (var i = 0; i < view.length; i++) {
+    if (view[i].id !== 'login-page') {
+      view[i].classList.add('hidden-div')
+    }
+    else {
+      view[i].classList.remove('hidden-div')
+    }
+  }
+}
+
+var $createLink = document.querySelector('.create-link')
+
+$createLink.addEventListener('click', function () {
+  var $views = document.querySelectorAll('.views')
+
+  showLogin($views)
+
+})
+
+var $playlistLink2 = document.querySelector('.playlist-link2')
+
+$playlistLink2.addEventListener('click', function () {
+  var $views = document.querySelectorAll('.views')
+
+  showCommunity($views)
+})
+
+function displayAllPlaylists(users, playlist, uindex) {
+  var $table = document.createElement('table')
+  var $div = document.createElement('div')
+  $div.classList.add('col-xs-4')
+
+  $table.classList.add('table')
+  $table.classList.add('table-inverse')
+  $table.classList.add('table-sm')
+
+  var $thead = document.createElement('thead')
+  var $trHead = document.createElement('tr')
+  var $th = document.createElement('th')
+
+  $th.textContent = playlist.title + ': by ' + users[uindex].user
+
+  $trHead.appendChild($th)
+  $thead.appendChild($trHead)
+  $table.appendChild($thead)
+
+  var $tbody = document.createElement('tbody')
+
+  for (var i = 0; i < playlist.songs.length; i++) {
+    var $trRow = document.createElement('tr')
+    var $title = document.createElement('td')
+    var $artist = document.createElement('td')
+
+    $title.textContent = playlist.songs[i].title
+    $artist.textContent = playlist.songs[i].artist
+
+    $trRow.appendChild($title)
+    $trRow.appendChild($artist)
+
+    $tbody.appendChild($trRow)
+  }
+
+  $table.appendChild($tbody)
+  $div.appendChild($table)
+
+  return $div
+
+}
